@@ -7,8 +7,8 @@ urlpatterns = [
     path('', ArticleListView.as_view(), name="articles"),
     path('<int:pk>/', ArticleDetailView.as_view(), name="article_detail"),
     path('new/', ArticleCreateView.as_view(), name="article_new"),
-    path('<int:pk>/update', ArticleUpdateView.as_view(), name="article_update"),
-    path('<int:pk>/delete', ArticleDeleteView.as_view(), name="article_delete"),
+    path('<int:pk>/update/', ArticleUpdateView.as_view(), name="article_update"),
+    path('<int:pk>/delete/', ArticleDeleteView.as_view(), name="article_delete"),
 ]
 
 # 1. Create an article detail view

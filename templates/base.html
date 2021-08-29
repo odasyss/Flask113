@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +26,8 @@ integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/
                             {{ user.username }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><a class="dropdown-item" href="{% url 'article_new' %}">Create Article</a></li>
+                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                             <li><a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a></li>
                         </ul>
                         {% else %}
@@ -34,7 +36,7 @@ integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/
                             </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{% url 'login' %}">LOG IN</a></li>
-                                <li><a class="dropdown-item" href="#">RESET Password</a></li>
+                                <li><a class="dropdown-item" href="{% url 'password_reset' %}">RESET Password</a></li>
                                 <li><a class="dropdown-item" href="{% url 'signup' %}">SignUp</a></li>
                             </ul>
                         {% endif %}
