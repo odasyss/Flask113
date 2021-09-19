@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} HOME {% endblock title %}
 
 {% block content %}
-    <br />
-    <div class="jumbotron">
-        <h1 class="display-4">NewsPaper</h1>
-        <p class="lead">A newspaper webste built with django</p>
-            <a class="btn btn-primary btn-lg" href="{% url 'articles' %}">Viw All Articles</a>
+    <div class="card article-list">
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img class="article-list"
+            src="{% static 'images/audir8.jpg' %}" class="img-fluid rounded-start" alt="r8">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+        </div>
     </div>
-
+    </div>
 {% endblock content%}

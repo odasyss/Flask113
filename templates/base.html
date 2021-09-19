@@ -6,46 +6,65 @@
 rel="stylesheet"
 integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/templates/index.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="/templates/index.css" /> -->
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <title>{% block title %}Newspaper App {% endblock title %}</title>
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">NewsPaper</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    <a class="nav-link" href="{% url 'articles' %}">Articles</a>
-                    <li class="nav-item dropdown">
-                        {% if user.is_authenticated %}
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ user.username }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="{% url 'article_new' %}">Create Article</a></li>
-                            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a></li>
-                        </ul>
-                        {% else %}
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Not Logged In
-                            </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="{% url 'login' %}">LOG IN</a></li>
-                                <li><a class="dropdown-item" href="{% url 'password_reset' %}">RESET Password</a></li>
-                                <li><a class="dropdown-item" href="{% url 'signup' %}">SignUp</a></li>
-                            </ul>
-                        {% endif %}
+        <div class="home">
+            <img class="logo-1" src="{% static 'images/' %}" alt="logo-1">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'home' %}">Audi News</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="float-right">
+                        <li class="menu-item">
+                            <a href="">Press Releases</a>
                         </li>
+                        <li class="menu-item">
+                            <a href=""> Gallery</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href=""> ABC</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href=""> XYZ</a>
+                        </li>
+
+                    </div>
+                    <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Press Releases</a>
+                        <a class="nav-link" href="{% url 'articles' %}">Articles</a>
+                        <li class="nav-item dropdown">
+                            {% if user.is_authenticated %}
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'article_new' %}">Create Article</a></li>
+                                <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">LOGOUT</a></li>
+                            </ul>
+                            {% else %}
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Not Logged In
+                                </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">LOG IN</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'password_reset' %}">RESET Password</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'signup' %}">SignUp</a></li>
+                                </ul>
+                            {% endif %}
+                            </li>
+                    </div>
+                    </div> -->
                 </div>
-                </div>
-            </div>
-            </nav>
+                </nav>
+        </div>
         <main>
             <div style="max-width: 40%;">
                 {% block content %}
